@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+  }
+  #valentine-container {
+    text-align: center;
+  }
+  #valentine-gif {
+    max-width: 100%;
+    height: auto;
+  }
+  #btn-yes, #btn-no {
+    display: inline-block;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  #btn-yes {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+  }
+  #btn-no {
+    background-color: #FF0000;
+    color: white;
+    padding: 10px 20px;
+  }
+  #btn-no:hover {
+    transform: scale(1.2);
+  }
+  #text-main {
+    font-size: 36px;
+  }
