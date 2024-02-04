@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ты пойдёшь со мной на свидание?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    #valentine-container {
+      text-align: center;
+    }
+    #valentine-gif {
+      max-width: 100%;
+      height: auto;
+    }
+    #btn-yes, #btn-no {
+      display: inline-block;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    #btn-yes {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+    }
+    #btn-no {
+      background-color: #FF0000;
+      color: white;
+      padding: 10px 20px;
+    }
+    #btn-no:hover {
+      transform: scale(1.2);
+    }
+    #text-main {
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  <div id="valentine-container">
+    <img src="../imgs/image.gif" alt="Ты пойдёшь со мной на свидание?" id="valentine-gif">
+    <p id="text-main">Ты пойдёшь со мной на свидание?</p>
+    <button id="btn-yes" onclick="YES()">Да</button>
+    <button id="btn-no" onclick="enlargeButton()">Нет</button>
+  </div>
+
+  <script>
+    var noButtonTexts = [
+      "Ты уверена?",
+      "Действительно уверена?",
+      "Подумай еще раз!",
+      "Последний шанс!",
+      "Точно нет?",
+      "Ты можешь пожалеть об этом!",
+      "Подумай еще раз!",
+      "Ты абсолютно уверена?",
+      "Это может быть ошибкой!",
+      "Имей сердце!",
+      "Не будь такой холодной!",
+      "Передумала?",
+      "Может, ты еще раз подумаешь?",
+      "Это твой последний ответ?",
+      "Ты разбиваешь моё сердце ;("
+    ];
+    var currentTextIndex = 0;
+
+    function enlargeButton() {
+      var btnYes = document.getElementById('btn-yes');
+      var currentPadding = parseInt(getComputedStyle(btnYes).paddingLeft);
+      btnYes.style.padding = (currentPadding + 5) + 'px ' + (currentPadding + 10) + 'px';
+      var currentFontSize = parseInt(getComputedStyle(btnYes).fontSize);
+      btnYes.style.fontSize = (currentFontSize + 5) + 'px';
+
+      var btnNo = document.getElementById('btn-no');
+      btnNo.innerHTML = noButtonTexts[currentTextIndex];
+      currentTextIndex = (currentTextIndex + 1) % noButtonTexts.length;
+    }
+
+    function YES() {
+        var textMain = document.getElementById('text-main');
+        textMain.innerHTML = "УРА!";
+
+        var gifMain = document.getElementById('valentine-gif');
+        gifMain.src = "../imgs/2.gif";
+
+        var btnYes = document.getElementById('btn-yes');
+        var btnNo = document.getElementById('btn-no');
+
+        btnYes.style.display = 'none';
+        btnNo.style.display = 'none';
+    }
+    
+  </script>
+</body>
+</html>
